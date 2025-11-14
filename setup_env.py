@@ -135,4 +135,14 @@ class VirtualEnvManager:
                 print(f"✗ Unexpected error: {e}")
                 return False
 
+    @staticmethod
+    def setup_virtualenv_and_install_requirements():
+        '''     setup the virtualenv and install the requirements    '''
+        if not VirtualEnvManager.setup_virtualenv():
+            print("✗ Cannot proceed with installation. Virtual environment creation failed.")
+            return False
+        if not VirtualEnvManager.install_requirements():
+            print("✗ Cannot proceed with installation. Requirements installation failed.")
+            return False
+        return True
 
